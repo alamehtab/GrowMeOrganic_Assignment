@@ -1,4 +1,4 @@
-import type { Artwork } from './types';
+import type { Artwork } from '../types/types';
 
 export interface ArtworksResponse {
     data: any[];
