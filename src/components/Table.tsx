@@ -11,7 +11,7 @@ import 'primereact/resources/themes/saga-blue/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 
-export default function ArtworkTable() {
+export default function Table() {
     const [page, setPage] = useState(1);
     const [pageSize, setPageSize] = useState(12);
     const [rows, setRows] = useState<Artwork[]>([]);
