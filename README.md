@@ -14,4 +14,4 @@ Netlify -- To deploy the project
 npm install or npm i ---- To instal node modules and dependencies
 npm run dev ---- Run in terminal to invoke developement server
 
-To select rows with oevrlay panel, enter the number you want to select, press tab and then press enter.
+I have fixed the overlay panel and it will work on mouse click and keyboard press too.
