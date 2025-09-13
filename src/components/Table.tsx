@@ -17,6 +17,8 @@ export default function Table() {
     const [rows, setRows] = useState<Artwork[]>([]);
     const [totalRecords, setTotalRecords] = useState<number>(0);
     const [loading, setLoading] = useState(false);
+    const inputNumRef = useRef<HTMLInputElement | null>(null);
+
 
     const [selectedIds, setSelectedIds] = useState<Set<number>>(new Set());
     const overlayRef = useRef<OverlayPanel>(null);
@@ -59,9 +61,8 @@ export default function Table() {
         setPageSize(event.rows);
         setPage(newPage);
     };
-    const handleSelectNRows = async () => {
-        if (!inputValue || inputValue <= 0) return;
-        const N = inputValue;
+    const handleSelectNRows = async (N: number | null) => {
+        if (!N || N <= 0) return;
 
         setSelectedIds(new Set());
 
@@ -99,13 +100,25 @@ export default function Table() {
                 <div className="p-fluid" style={{ width: '200px' }}>
                     <h5>Select No.of Rows</h5>
                     <InputNumber
+                        inputRef={inputNumRef}
                         value={inputValue ?? undefined}
                         onValueChange={(e) => setInputValue(e.value ?? null)}
                         placeholder="Enter number"
                         min={1}
                         className="mb-2"
                     />
-                    <Button label="Select" onClick={handleSelectNRows} />
+                    <Button
+                        label="Select"
+                        type="button"
+                        onClick={() => {
+                            if (inputNumRef.current) inputNumRef.current.blur();
+                            setTimeout(() => {
+                                const rawValue = inputNumRef.current?.value;
+                                const parsed = rawValue ? parseInt(rawValue, 10) : null;
+                                handleSelectNRows(parsed);
+                            }, 0);
+                        }}
+                    />
                 </div>
             </OverlayPanel>
         </div>
@@ -138,3 +151,4 @@ export default function Table() {
         </div>
     );
 }
+
