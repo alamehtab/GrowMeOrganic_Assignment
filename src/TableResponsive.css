@@ -1,0 +1,51 @@
+.table-responsive-wrapper {
+    width: 100%;
+    padding: 0.5rem;
+    box-sizing: border-box;
+}
+
+.table-scroll-x {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.responsive-datatable {
+    min-width: 600px;
+    font-size: 1rem;
+}
+
+.table-overlay-panel {
+    width: 220px;
+    max-width: 90vw;
+}
+
+.responsive-h5 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.responsive-input,
+.responsive-btn {
+    width: 100%;
+    font-size: 1rem;
+}
+
+@media (max-width: 600px) {
+    .responsive-datatable {
+        min-width: 400px;
+        font-size: 0.95rem;
+    }
+    .table-overlay-panel {
+        width: 98vw;
+        max-width: 98vw;
+        padding: 1rem 0.5rem;
+    }
+    .responsive-h5 {
+        font-size: 1rem;
+    }
+    .responsive-input,
+    .responsive-btn {
+        font-size: 1rem;
+        min-height: 2.5rem;
+    }
+}
